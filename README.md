@@ -1,4 +1,4 @@
-Week one challenge
+## Week one challenge
 
 Created student grade generator function
 Created  Speed detector function
