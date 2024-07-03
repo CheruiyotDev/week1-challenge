@@ -9,9 +9,6 @@ function netSalaryCalculator(salary, benefits) {
   return netSalary;
 }
 
-// Example usage:
-console.log(netSalaryCalculator(15999, 0)); // Adjusted to match the original function call
-
 console.log(netSalaryCalculator(15999, 0))
 // Calculate payee
 
