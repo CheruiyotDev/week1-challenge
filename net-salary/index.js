@@ -1,6 +1,6 @@
 function netSalaryCalculator(salary) {
   const payeeTaxRates = function(salary) {
-    if (salary === 24000) {
+    if (salary <= 24000) {
       return salary * 10 / 100;
     } else if(salary >= 24_000 && salary <= 32_333) {
       return salary * 25 / 100;
@@ -61,9 +61,9 @@ function netSalaryCalculator(salary) {
       return 0;
     }
   };
-  const housingLevy = function (salary) {
-    return salary * 1.5 / 100;
-  };
-  return parseFloat(salary - payeeTaxRates(salary) - nhifRates(salary) - nssfRates(salary) - housingLevy(salary)).toFixed(2);
+  // const housingLevy = function (salary) {
+  //   return salary * 1.5 / 100;
+  // };
+  return parseFloat(salary - payeeTaxRates(salary) - nhifRates(salary) - nssfRates(salary)).toFixed(2);
 }
-//console.log(netSalaryCalculator(15999))
+console.log(netSalaryCalculator(15999))
