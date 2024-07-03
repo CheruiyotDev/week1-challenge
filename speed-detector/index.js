@@ -1,6 +1,8 @@
+//Calculate demerit points
 function speedDetecter(speed) {
   const speedLimit = 70;
   const demeritPoints = 5;
+  //check if speed is greater that the speed limit
   if (speed <= speedLimit) {
     return 'Ok';
   } else if (speed > speedLimit) {
