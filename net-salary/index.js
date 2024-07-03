@@ -1,25 +1,36 @@
 //Calculate net salary
 function netSalaryCalculator(salary, benefits) {
-  const netSalary = parseFloat((salary + benefits) - (payeeTaxRates(salary) + nhifRates(salary) + nssfRates(salary))).toFixed(2);
+  const totalIncome = salary + benefits;
+  const payee = payeeTaxRates(totalIncome);
+  const nhif = nhifRates(totalIncome);
+  const nssf = nssfRates(totalIncome);
+
+  const netSalary = parseFloat((totalIncome - payee - nhif - nssf).toFixed(2));
   return netSalary;
 }
-console.log(netSalaryCalculator(15999))
+
+// Example usage:
+console.log(netSalaryCalculator(15999, 0)); // Adjusted to match the original function call
+
+console.log(netSalaryCalculator(15999, 0))
 // Calculate payee
-function payeeTaxRates (salary) {
+
+function payeeTaxRates(salary) {
   if (salary <= 24000) {
     return salary * 10 / 100;
-  } else if(salary >= 24_000 && salary <= 32_333) {
+  } else if (salary > 24000 && salary <= 32333) {
     return salary * 25 / 100;
-  } else if (salary >= 32_334 && salary <= 500_000) {
+  } else if (salary > 32333 && salary <= 500000) {
     return salary * 30 / 100;
-  } else if (salary >= 500_000 && salary <= 800_000) {
-    return salary * 32.5 / 100
-  } else if (salary > 800_0000) {
-    return salary * 35 / 100
+  } else if (salary > 500000 && salary <= 800000) {
+    return salary * 32.5 / 100;
+  } else if (salary > 800000) {
+    return salary * 35 / 100;
   } else {
     return 0;
   }
 }
+
 //calculate NSSF rates
 function nssfRates(salary) {
   if (salary >= 7000) {
@@ -28,43 +39,45 @@ function nssfRates(salary) {
     return 0;
   }
 }
+
 //CAlculate NHIF rates
-function nhifRates (salary) {
-  if (salary === 5_999) {
+function nhifRates(salary) {
+  if (salary <= 5999) {
     return 150;
-  } else if (salary >= 6_000 && salary <= 7_999) {
+  } else if (salary <= 7999) {
     return 300;
-  } else if (salary >= 8_000 && salary <= 11_999) {
+  } else if (salary <= 11999) {
     return 400;
-  } else if (salary >= 12_000 && salary <= 14_999) {
+  } else if (salary <= 14999) {
     return 500;
-  } else if (salary >= 15_000 && salary <= 19_999) {
+  } else if (salary <= 19999) {
     return 600;
-  } else if (salary >= 20_000 && salary <= 24_999) {
+  } else if (salary <= 24999) {
     return 750;
-  } else if (salary >= 25_000 && salary <= 29_999) {
+  } else if (salary <= 29999) {
     return 850;
-  } else if (salary >= 30_000 && salary <= 34_999) {
+  } else if (salary <= 34999) {
     return 900;
-  } else if (salary >= 35_000 && salary <= 39_999) {
+  } else if (salary <= 39999) {
     return 950;
-  } else if (salary >= 40_000 && salary <= 44_999) {
+  } else if (salary <= 44999) {
     return 1000;
-  } else if (salary >= 45_000 && salary <= 49_999) {
-    return 1_100;
-  } else if (salary >= 50_000 && salary <= 59_999) {
-    return 1_200;
-  } else if (salary >= 60_000 && salary <= 69_999) {
-    return 1_300;
-  } else if (salary >= 70_000 && salary <= 79_999) {
-    return 1_400;
-  } else if (salary >= 80_000 && salary <= 89_999) {
+  } else if (salary <= 49999) {
+    return 1100;
+  } else if (salary <= 59999) {
+    return 1200;
+  } else if (salary <= 69999) {
+    return 1300;
+  } else if (salary <= 79999) {
+    return 1400;
+  } else if (salary <= 89999) {
     return 1500;
-  } else if (salary >= 90_000 && salary <= 99_999) {
+  } else if (salary <= 99999) {
     return 1600;
-  } else if (salary >= 100_000) {
+  } else if (salary >= 100000) {
     return 1700;
   } else {
     return 0;
   }
 }
+
