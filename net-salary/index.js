@@ -1,4 +1,4 @@
-//Calculate net salary and return net salaru
+//Calculate net salary and return net salary
 function netSalaryCalculator(salary, benefits) {
   const totalIncome = salary + benefits;
   const payee = payeeTaxRates(totalIncome);
