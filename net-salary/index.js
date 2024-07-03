@@ -1,7 +1,7 @@
 //Calculate net salary
-function netSalaryCalculator(salary) {
+function netSalaryCalculator(salary, benefits) {
   const netSalary = parseFloat(salary - (payeeTaxRates(salary) + nhifRates(salary) + nssfRates(salary))).toFixed(2);
-  return netSalary;
+  return netSalary + benefits;
 }
 console.log(netSalaryCalculator(15999))
 // Calculate payee
