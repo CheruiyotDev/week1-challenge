@@ -1,33 +1,22 @@
-function studentGradeGenerator(grade) {
-  //Using Switch Statement
-    if(grade > 100 || grade < 0 || isNaN(grade)) {
-      return 'Enter the correct grade'
-    } 
-    switch (true) {
-      case grade >= 80:
-        return 'A'
-      case grade >= 60:
-        return 'B'
-      case grade >= 50:
-        return 'C'
-      case grade >= 40:
-        return 'D'
-      default:
-        return 'E'
-    }
-      // Using if statement
-    // if(grade > 100 || grade < 0) {
-    //   return 'Enter the correct grade'
-    // }else  if (grade > 79 && grade <= 100) {
-    //   return 'A'
-    // } else if (grade > 60 && grade <= 79) {
-    //   return 'B'
-    // } else if (grade > 49 && grade <= 59) {
-    //   return 'C'
-    // } else if (grade > 40 && grade <= 49) {
-    //   return 'D'
-    // } else if (grade < 40) {
-    //   return 'E'
-    // }
+//funtion to generate student grade
+function studentGradeGenerator(marks) {
+  if (marks < 100 && marks > 0 && !NaN) {
+    let grade;
+        if (marks > 79) {
+            grade = 'A';
+        } else if (marks >= 60) {
+            grade = 'B';
+        } else if (marks >= 50) {
+            grade = 'C';
+        } else if (marks >= 40) {
+            grade = 'D';
+        } else {
+            grade = 'E';
+        } 
+        return grade;
+  } else {
+    return "The marks entered are incorrect enter the correct marks";
   }
-  console.log(studentGradeGenerator(99))
+  
+}
+console.log(studentGradeGenerator(15))
